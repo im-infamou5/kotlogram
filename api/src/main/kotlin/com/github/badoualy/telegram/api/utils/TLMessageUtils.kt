@@ -21,6 +21,11 @@ fun TLAbsMessage?.getMessageOrEmpty() = when (this) {
     else -> ""
 }
 
+fun TLAbsMessage?.getMediaOrEmpty() = when (this) {
+    is TLAbsMessageMedia -> media!!
+    else -> ""
+}
+
 val TLAbsMessage?.toId: TLAbsPeer?
     get() = when (this) {
         is TLMessage -> toId
